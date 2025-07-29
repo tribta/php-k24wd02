@@ -22,10 +22,10 @@
 
   <form action="action.php" method="post">
     <label for="name">Your Name:</label>
-    <input id="name" type="text">
+    <input name="name" id="name" type="text">
 
     <label for="age">Your Age:</label>
-    <input id="age" type="number">
+    <input name="age" id="age" type="number">
 
     <button type="submit">Submit</button>
   </form>

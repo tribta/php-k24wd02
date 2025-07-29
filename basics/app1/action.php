@@ -9,8 +9,8 @@
 
 <body>
     <div>
-        <h3>Hello <?php echo $_POST['name'] ?> !!!</h3>
-        <p>You are <?php echo $_POST['age'] ?> years olds.</p>
+        <h3>Hello <?php echo htmlspecialchars($_POST['name']) ?> !!!</h3>
+        <p>You are <?php echo (int)$_POST['age'] ?> years olds.</p>
     </div>
 </body>
 
