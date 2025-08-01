@@ -46,3 +46,14 @@ $obj4 = (object)$arr1;
 var_dump(isset($obj4->{1}));
 echo PHP_EOL;
 print_r($obj4->{1});
+echo PHP_EOL;
+echo get_class($obj1); // Person
+echo PHP_EOL;
+echo get_class($obj2); // Person
+echo PHP_EOL;
+echo get_class($obj3); // stdClass
+echo PHP_EOL;
+
+var_dump(is_object($obj1)); // true
+var_dump(is_object($obj2)); // true
+var_dump(is_object($obj3)); // true
