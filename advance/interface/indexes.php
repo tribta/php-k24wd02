@@ -1,20 +1,20 @@
 <?php
 interface Logger
 {
-    public function log($msg);
+    public function log(string $msg): void;
 }
 interface Notifier
 {
-    public function notify($msg);
+    public function notify(string $msg): void;
 }
 class UserService implements Logger, Notifier
 {
-    public function log($msg)
+    public function log($msg): void
     {
         echo "[LOG]: $msg<br/>";
     }
 
-    public function notify($msg)
+    public function notify($msg): void
     {
         echo "[NOTIFY]: $msg<br/>";
     }
@@ -22,4 +22,4 @@ class UserService implements Logger, Notifier
 
 $svc = new UserService();
 $svc->log("Register successfully!!!");
-$svc->notify("Welcome to my website!!!"); 
+$svc->notify("Welcome to my website!!!");
