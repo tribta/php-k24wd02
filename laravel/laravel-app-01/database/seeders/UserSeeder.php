@@ -14,10 +14,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::query()->truncate();
-        User::factory()->create([
-            "name" => "Zeus", "email" => "z@olympus.gr",
-            "name" => "Hades", "email" => "h@olympus.gr",
-            "name" => "Poseidon", "email" => "p@olympus.gr"
-        ]);
+        User::factory()->create(["name" => "Zeus","email" => "z@olympus.gr",]);
+        User::factory()->create(["name" => "Hades","email" => "h@olympus.gr",]);
+        User::factory()->create(["name" => "Poseidon","email" => "p@olympus.gr"]);
     }
 }
