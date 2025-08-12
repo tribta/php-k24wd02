@@ -34,7 +34,7 @@
             <p>No users found.</p>
         <?php else: ?>
             <?php foreach ($users as $user): ?>
-                <div>
+                <div class="card">
                     <?php echo htmlspecialchars($user->name, ENT_QUOTES); ?>
                     <?php echo htmlspecialchars($user->email, ENT_QUOTES); ?>
                 </div>
