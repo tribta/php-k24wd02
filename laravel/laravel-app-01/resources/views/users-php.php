@@ -24,14 +24,22 @@
     <h1>Users (PHP view)</h1>
 
     <form method="get" action="/users-php" style="margin:12px 0">
-        <input type="text" name="q" placeholder="Filter by name..." value="#"> <!-- Insert variable to search -->
+        <input type="text" name="q" placeholder="Filter by name..." value="<?php htmlspecialchars($q ?? '', ENT_QUOTES) ?>"> <!-- Insert variable to search -->
         <button type="submit">Search</button>
     </form>
 
     <div>
         <!-- Insert condition to display users list -->
-        <p>No users found.</p>
-
+        <?php if (count($users) === 0): ?>
+            <p>No users found.</p>
+        <?php else: ?>
+            <?php foreach ($users as $user): ?>
+                <div>
+                    <?php echo htmlspecialchars($user->name, ENT_QUOTES); ?>
+                    <?php echo htmlspecialchars($user->email, ENT_QUOTES); ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 
     <p style="margin-top:16px">
