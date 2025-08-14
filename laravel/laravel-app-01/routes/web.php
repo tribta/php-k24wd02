@@ -36,3 +36,5 @@ Route::get("/users-php", function (Request $request) {
 Route::get("/counter", function () {
     return view("counter-page");
 });
+
+Route::get("/users/{id}", [TestController::class, "show"]);
