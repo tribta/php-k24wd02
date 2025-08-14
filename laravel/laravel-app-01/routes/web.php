@@ -32,3 +32,7 @@ Route::get("/users-php", function (Request $request) {
 
     return response()->view('users-php', ['users' => $users, 'q' => $q]);
 });
+
+Route::get("/counter", function () {
+    return view("counter-page");
+});
