@@ -1,4 +1,5 @@
-import { useForm } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react';
+import MainLayout from '../layouts/MainLayout';
 
 export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -13,25 +14,30 @@ export default function Login() {
     };
 
     return (
-        <div className="card">
-            <h2>Login</h2>
-            <form onSubmit={submit}>
-                <div>
-                    <label>Email</label>
-                    <input type="email" className="input" value={data.email} onChange={(e) => setData('email', e.target.value)} />
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" className="input" value={data.password} onChange={(e) => setData('password', e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="remember">Remember Me</label>
-                    <input type="checkbox" id="remember" checked={data.remember} onChange={(e) => setData('remember', e.target.checked)} />
-                </div>
-                <button type="submit" className="btn" disabled={processing}>
-                    {processing ? 'Login in proccessing...' : 'Login'}
-                </button>
-            </form>
-        </div>
+        <MainLayout>
+            <div className="card" style={{ maxWidth: 420, margin: '0 auto' }}>
+                <h2>Login</h2>
+                <form onSubmit={submit}>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" className="input" value={data.email} onChange={(e) => setData('email', e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" className="input" value={data.password} onChange={(e) => setData('password', e.target.value)} />
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '8px 0 16px' }}>
+                        <input type="checkbox" id="remember" checked={data.remember} onChange={(e) => setData('remember', e.target.checked)} />
+                        <label htmlFor="remember">Remember Me</label>
+                    </div>
+                    <button type="submit" className="btn" disabled={processing}>
+                        {processing ? 'Login in proccessing...' : 'Login'}
+                    </button>
+                </form>
+                <p>
+                    Don't have account? <Link href={'/register'}>Register</Link>
+                </p>
+            </div>
+        </MainLayout>
     );
 }
