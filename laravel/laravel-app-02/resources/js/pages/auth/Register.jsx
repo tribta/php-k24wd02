@@ -50,7 +50,7 @@ export default function Register() {
                     </button>
                 </form>
                 <p>
-                    Don't have account? <Link href={'/register'}>Register</Link>
+                    Don't have account? <Link href={'/login'}>Login</Link>
                 </p>
             </div>
         </MainLayout>
