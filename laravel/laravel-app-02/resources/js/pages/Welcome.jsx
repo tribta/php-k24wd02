@@ -1,11 +1,13 @@
-export default function Welcome({ appName }) {
+import MainLayout from '../pages/layouts/MainLayout';
+
+export default function Welcome({ appNameFromPHP }) {
     return (
-        <div className="container">
+        <MainLayout>
             <div className="card">
-                <h1>{appName}</h1>
+                <h1>{appNameFromPHP}</h1>
                 <p>Welcome to My Bank.</p>
                 <a href="/login">Login</a> . <a href="/register">Register</a>
             </div>
-        </div>
+        </MainLayout>
     );
 }
