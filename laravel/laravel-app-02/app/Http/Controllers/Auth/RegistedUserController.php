@@ -22,7 +22,7 @@ class RegistedUserController extends Controller
         $data = $request->validate([
             "name" => ["required", "string", "max:255"],
             "email" => ["required", "string", "max:255", "email", "unique:users,email"],
-            "password" => ["required", "string", "min:6", "confirm"]
+            "password" => ["required", "string", "min:6", "confirmed"]
         ]);
         $user = User::create([
             "name" => $data["name"],
