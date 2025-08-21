@@ -30,7 +30,7 @@ class TransactionController extends Controller
             'number',
             'name',
             'currency'
-        )]);
+        ), "transactions" => $txs]);
     }
     private function authorizeAccount(Request $request, Account $account): void
     {
