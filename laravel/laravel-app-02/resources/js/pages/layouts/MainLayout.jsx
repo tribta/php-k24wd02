@@ -3,7 +3,7 @@ import { Link, usePage } from '@inertiajs/react';
 export default function MainLayout({ children }) {
     const { props } = usePage();
     const user = props.auth.user;
-
+    const flash = props.flash;
     return (
         <div className="container">
             <nav className="nav">
@@ -24,6 +24,8 @@ export default function MainLayout({ children }) {
                     )}
                 </div>
             </nav>
+            {flash?.success && <p style={{ color: 'green' }}>{flash.success}</p>}
+            {flash?.error && <p style={{ color: 'red' }}>{flash.error}</p>}
             {children}
         </div>
     );

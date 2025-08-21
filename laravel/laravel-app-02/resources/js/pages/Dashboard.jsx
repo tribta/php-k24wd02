@@ -1,4 +1,4 @@
-import { usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import MainLayout from '../pages/layouts/MainLayout';
 
 export default function Dashboard() {
@@ -14,11 +14,10 @@ export default function Dashboard() {
                 </p>
                 <ul>
                     <li>
-                        <a href="/account">Manage Bank Account</a>
+                        <Link href="/account">Manage Bank Account</Link>
                     </li>
                 </ul>
-                {props.flash?.success && 
-                <p style={{ color: 'green' }}>{props.flash?.success}</p>}
+                
             </div>
         </MainLayout>
     );
