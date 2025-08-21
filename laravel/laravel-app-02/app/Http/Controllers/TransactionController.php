@@ -29,9 +29,31 @@ class TransactionController extends Controller
             'id',
             'number',
             'name',
-            'currency'
+            'currency',
+            'balance'
         ), "transactions" => $txs]);
     }
+
+    public function createDeposit(Request $request, Account $account): Response
+    {
+        $this->authorizeAccount($request, $account);
+        return Inertia::render("Transactions/Deposit", ['accounts' => $account->only(
+            'id',
+            'number',
+            'name',
+            'currency',
+            'balance'
+        )]);
+    }
+    public function storeDeposit(Request $request, Account $account)
+    {
+        $this->authorizeAccount($request, $account);
+        $data = $request->validate([
+            'amount' => ['required', 'numeric', 'gt:0'],
+            'memo' => ['nullable', 'string', 'max:255']
+        ]);
+    }
+
     private function authorizeAccount(Request $request, Account $account): void
     {
         if ($account->user_id !== $request->user()->id) {
