@@ -14,7 +14,7 @@ export default function Dashboard() {
                 </p>
                 <ul>
                     <li>
-                        <Link href="/account">Manage Bank Account</Link>
+                        <Link href="/accounts">Manage Bank Account</Link>
                     </li>
                 </ul>
                 
