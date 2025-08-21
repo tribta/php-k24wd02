@@ -35,9 +35,9 @@ class AccountController extends Controller
         $account = Account::create([
             'user_id' => $request->user()->id,
             'number' => $number,
-            'name',
-            'currency',
-            'balance'
+            'name' => $data['name'],
+            'currency' => strtoupper($data['currency']),
+            'balance' => 0
         ]);
         return redirect("accounts/{$account->id}/transaction")->with("success", "Your
         bank account has been created! Please deposit balance to start!.");
