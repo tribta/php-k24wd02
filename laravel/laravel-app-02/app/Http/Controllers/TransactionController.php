@@ -68,6 +68,9 @@ class TransactionController extends Controller
         });
     }
 
+    public function createWithdraw(){} // render react view 
+    public function storeWithdraw(){} // xử lý rút tiền
+
     private function authorizeAccount(Request $request, Account $account): void
     {
         if ($account->user_id !== $request->user()->id) {
