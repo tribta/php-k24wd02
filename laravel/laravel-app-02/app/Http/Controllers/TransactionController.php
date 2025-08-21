@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -52,6 +53,19 @@ class TransactionController extends Controller
             'amount' => ['required', 'numeric', 'gt:0'],
             'memo' => ['nullable', 'string', 'max:255']
         ]);
+        DB::transaction(function () use ($request, $account, $data) {
+            $acc = Account::where('id', $account->id)->lockForUpdate()->first();
+            $newBalance = bcadd($acc->balance, $data['amount'], 4);
+            Transaction::create([
+                'account_id' => $acc->id,
+                'type' => 'deposit',
+                'amount' => $data['amount'],
+                'balance_after' => $newBalance,
+                'memo' => $data['memo'],
+                'created_by' => $request->user()->id
+            ]);
+            $acc->update(['balance' => $newBalance]);
+        });
     }
 
     private function authorizeAccount(Request $request, Account $account): void
