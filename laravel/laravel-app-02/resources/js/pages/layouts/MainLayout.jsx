@@ -24,8 +24,8 @@ export default function MainLayout({ children }) {
                     )}
                 </div>
             </nav>
-            {flash?.success && <p style={{ color: 'green' }}>{flash.success}</p>}
-            {flash?.error && <p style={{ color: 'red' }}>{flash.error}</p>}
+            {flash?.success && <p className="success">{flash.success}</p>}
+            {flash?.error && <p className="error">{flash.error}</p>}
             {children}
         </div>
     );

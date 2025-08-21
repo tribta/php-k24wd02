@@ -61,6 +61,17 @@ label {
     color: #b00020;
     font-size: 14px;
     margin-top: 4px;
+    border: 1px solid #fed7d7;
+    background-color: #fff5f5;
+    padding: 10px;
+}
+.success {
+    color: green;
+    font-size: 14px;
+    margin-top: 4px;
+    border: 1px solid #c6f6d5;
+    background-color: #f0fff4;
+    padding: 10px;
 }
 .nav {
     display: flex;
