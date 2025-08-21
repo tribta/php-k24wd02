@@ -39,7 +39,10 @@ class AccountController extends Controller
             'currency' => strtoupper($data['currency']),
             'balance' => 0
         ]);
-        return redirect("accounts/{$account->id}/transaction")->with("success", "Your
+        return redirect(
+            /* "accounts/{$account->id}/transaction" */
+            "/accounts"
+            )->with("success", "Your
         bank account has been created! Please deposit balance to start!.");
     }
 }

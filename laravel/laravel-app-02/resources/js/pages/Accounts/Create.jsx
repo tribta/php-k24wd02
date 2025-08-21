@@ -19,22 +19,12 @@ function Create() {
                 <form onSubmit={submit} noValidate>
                     <label htmlFor="name">Account Name</label>
                     <div className="form-row">
-                        <input 
-                        id="name"
-                        type="text" 
-                        className="input" 
-                        value={data.name} 
-                        onChange={(e)=>setData(e.target.value)} />
+                        <input id="name" type="text" className="input" value={data.name} onChange={(e) => setData(e.target.value)} />
                     </div>
 
                     <label htmlFor="currency">Currency</label>
                     <div className="form-row">
-                        <input 
-                        id='currency'
-                        type="text" 
-                        className="input" 
-                        value={data.currency} 
-                        onChange={(e)=>setData(e.target.value)} />
+                        <input id="currency" type="text" className="input" value={data.currency} onChange={(e) => setData(e.target.value)} />
                     </div>
 
                     <button type="submit" className="btn" disabled={processing}>
