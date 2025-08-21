@@ -21,10 +21,12 @@ export default function Login() {
                     <div>
                         <label>Email</label>
                         <input type="email" className="input" value={data.email} onChange={(e) => setData('email', e.target.value)} />
+                        {errors.email && <div className="error">{errors.email}</div>}
                     </div>
                     <div>
                         <label>Password</label>
                         <input type="password" className="input" value={data.password} onChange={(e) => setData('password', e.target.value)} />
+                        {errors.password && <div className="error">{errors.password}</div>}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '8px 0 16px' }}>
                         <input type="checkbox" id="remember" checked={data.remember} onChange={(e) => setData('remember', e.target.checked)} />
