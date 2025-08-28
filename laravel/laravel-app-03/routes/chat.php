@@ -9,7 +9,7 @@ Route::middleware("auth")->group(function () {
     // xem chi tiết 1 conversation
     Route::get('/chat/{conversation}');
     // tạo mới 1 conversation
-    Route::post('/chat');
+    Route::post('/chat')->name('chat.show');
     // gửi 1 message
     Route::post('/messages');
 });
