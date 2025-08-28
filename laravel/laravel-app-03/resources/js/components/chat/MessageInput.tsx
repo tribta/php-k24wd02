@@ -1,6 +1,29 @@
 // @ts-nocheck
 
+import { useForm } from '@inertiajs/react';
+
 export default function MessageInput({ conversationId }) {
+    const inputRef = useRef(null);
+    const { data, setData, post, processing, reset, clearErrors } = useForm({
+        conversation_Id = conversationId,
+        body: '',
+    });
+
+    const submit = (e) => {
+        e.preventDefault();
+        if (!data.body.trim()) return;
+        post('/messages', {
+            preserveScroll: true,
+            preserveState: false,
+            onSuccess: () => reset('body'),
+            onFinish: () => {
+                clearErrors();
+                if (data.body !== '') setData('body', '');
+                inputRef.current.focus();
+            },
+        });
+    };
+
     return (
         <form className="mi-form" onSubmit={submit} autoComplete="off">
             <input
