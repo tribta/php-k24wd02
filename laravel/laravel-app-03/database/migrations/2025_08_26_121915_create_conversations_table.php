@@ -17,6 +17,7 @@ return new class extends Migration
 
             $table->string('name')->nullable();
             $table->boolean('is_direct')->default(true);
+            
             $table->foreignId('created_by')
                 ->constrained('users')
                 ->cascadeOnDelete();

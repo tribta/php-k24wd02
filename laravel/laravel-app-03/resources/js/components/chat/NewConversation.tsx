@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function NewConversation({ users = [] }) {
     const [groupName, setGroupName] = useState('');
+    
     const { data, setData, reset, errors } = useForm({
         user_ids: [],
         name: undefined,

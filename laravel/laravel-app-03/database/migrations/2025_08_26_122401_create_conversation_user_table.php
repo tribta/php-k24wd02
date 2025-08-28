@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('conversation_user', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
             $table->foreignId('conversation_id', 'user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
             $table->unique(['conversation_id', 'user_id']);
+            
             $table->index(['conversation_id', 'user_id']);
         });
     }
