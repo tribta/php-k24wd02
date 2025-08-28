@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         $conversation->each(function ($conversation) use ($users) {
             Message::factory(rand(5, 15))->create([
                 'conversation_id' => $conversation->id,
-                'user_id' => $conversation->$users->random()->id,
+                'user_id' => $conversation->users->random()->id,
             ]);
         });
     }
