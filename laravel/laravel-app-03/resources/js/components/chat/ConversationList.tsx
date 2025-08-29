@@ -5,16 +5,16 @@ export default function ConversationList({ conversations = [] }) {
     if (!conversations.length) return <div>No Conversation Found.</div>;
 
     return (
-        <ul>
+        <ul className="conv-list">
             {conversations.map((c) => {
-                const active = url === `/chat/${c.id}`; // true / false
+                const active = url === `/chat/${c.id}`;
 
                 return (
                     <li key={c.id} className="conv-item">
                         <Link href={`/chat/${c.id}`} className={`conv-link ${active ? 'active' : ''}`}>
-                            <div>{c.is_direct === 1 ? 'Direct Message' : c.name || `Group #${c.id}`}</div>
+                            <div className="conv-title">{c.name || (c.is_direct ? 'Direct message' : `Group #${c.id}`)}</div>
                             {c.last_message && (
-                                <div>
+                                <div className="conv-sub">
                                     {c.last_message.user.name}
                                     <span>: </span>
                                     {c.last_message.body.slice(0, 40) + '...'}

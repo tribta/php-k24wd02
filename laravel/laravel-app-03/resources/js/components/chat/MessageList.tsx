@@ -15,7 +15,7 @@ export default function MessageList({ messages, currentUserId }) {
 
     useEffect(() => {
         if (isNearBottom()) bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages.data.length]);
+    }, [messages?.data?.length]);
 
     useEffect(() => {
         bottomRef.current.scrollIntoView({ behavior: 'auto' });

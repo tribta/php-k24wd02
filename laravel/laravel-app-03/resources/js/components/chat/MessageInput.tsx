@@ -1,11 +1,12 @@
 // @ts-nocheck
 
 import { useForm } from '@inertiajs/react';
+import { useRef } from 'react';
 
 export default function MessageInput({ conversationId }) {
     const inputRef = useRef(null);
     const { data, setData, post, processing, reset, clearErrors } = useForm({
-        conversation_Id = conversationId,
+        conversation_id: conversationId,
         body: '',
     });
 
@@ -19,7 +20,7 @@ export default function MessageInput({ conversationId }) {
             onFinish: () => {
                 clearErrors();
                 if (data.body !== '') setData('body', '');
-                inputRef.current.focus();
+                inputRef.current?.focus();
             },
         });
     };

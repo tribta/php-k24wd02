@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware("auth")->group(function () {
     // tải về danh sách conversations
-    Route::get('/chat', [ConversationController::class, 'index'])->name('chat.index');
+    Route::get('/chat', [ConversationController::class, 'index'])
+        ->name('chat.index');
 
     // xem chi tiết 1 conversation
     Route::get(
@@ -18,5 +20,6 @@ Route::middleware("auth")->group(function () {
         ->name('chat.store');
 
     // gửi 1 message
-    Route::post('/messages');
+    Route::post('/messages', [MessageController::class, 'store'])
+        ->name('messages.store');
 });

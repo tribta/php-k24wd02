@@ -62,7 +62,7 @@ class ConversationController extends Controller
 
         $data = $request->validate([
             'user_ids' => ['required', 'array', 'min:1'],
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['nullable', 'string', 'max:255'],
             'user_ids.*' => ['integer', 'exists:users,id', 'different:' . $userId],
         ]);
 
